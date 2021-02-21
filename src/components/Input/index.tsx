@@ -3,8 +3,8 @@ import { Container, Error } from './styles';
 import { IconBaseProps } from 'react-icons';
 import { FiAlertCircle } from 'react-icons/fi';
 import { useField } from '@unform/core';
+// import Tooltip from '../Tooltip';
 
-//todas as propriedades do input
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string,
     icon?: React.ComponentType<IconBaseProps>;
@@ -46,7 +46,6 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
     return (
         <Container isErrored={!!error} isFilled={isFilled} isFocused={isFocused} >
 
-            {/* Se existir mostre */}
             {Icon && <Icon size={40} />}
 
             <input
@@ -54,7 +53,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
                 onBlur={handleInputBlue}
                 defaultValue={defaultValue}
                 ref={inputRef}
-                {...rest} // restante das props
+                {...rest}
             />
 
             {error &&
